@@ -1,0 +1,135 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Browserless",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Browserless": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-07-20T08:31:34.610Z",
+  "id": "B9v7pcJZ34T5O52a",
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "function",
+        "browserOptions": {
+          "headless": false,
+          "stealth": true
+        }
+      },
+      "id": "ff67028d-138c-4c03-b295-dbf4bc83fff3",
+      "name": "Browserless",
+      "type": "n8n-nodes-browserless.Browserless",
+      "typeVersion": 1,
+      "position": [
+        840,
+        500
+      ],
+      "credentials": {
+        "browserlessApi": {
+          "id": "MTxIch4PdX2fsjlX",
+          "name": "Browserless Credentials account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "a6eb18aa-0d4c-417f-8cc0-e0c30db8a642",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        660,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://basic-bundle-crimson-base-d56b.lead-built-marketing.workers.dev/proxy?modify&proxyUrl=https://webhook.site/dc8f81b2-dcf8-40f1-aa83-adb3d1fc0a6b",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "0a816731-f87f-4916-a7e1-0c76a4fcdc1f",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1280,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "browserlessApi",
+        "options": {}
+      },
+      "id": "4204067b-12d8-43d6-ae6f-74a51ac5001d",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1060,
+        500
+      ],
+      "credentials": {
+        "browserlessApi": {
+          "id": "MTxIch4PdX2fsjlX",
+          "name": "Browserless Credentials account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-07-20T10:16:30.748Z",
+  "versionId": "c0b9878b-391b-48ad-8c19-e5a0d988998b"
+}
