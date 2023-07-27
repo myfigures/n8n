@@ -1,0 +1,257 @@
+{
+  "active": true,
+  "connections": {
+    "Google Cloud Firestore": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "HighLevel2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HighLevel1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Cloud Firestore1": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Only use if you need to manually add": {
+      "main": [
+        [
+          {
+            "node": "Google Cloud Firestore1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stripe Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Google Cloud Firestore",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-07-27T20:30:29.835Z",
+  "id": "rxYYycYfUrECCLiF",
+  "name": "workflows/New Subscribers - myfigures.com.",
+  "nodes": [
+    {
+      "parameters": {
+        "projectId": "my-figures-ee0e7",
+        "collection": "=Users",
+        "documentId": "{{ $json.body[0].data.object.client_reference_id }}"
+      },
+      "id": "86bc02e7-ee0d-43d2-8b23-8d23f41e2a7f",
+      "name": "Google Cloud Firestore",
+      "type": "n8n-nodes-base.googleFirebaseCloudFirestore",
+      "typeVersion": 1,
+      "position": [
+        740,
+        700
+      ],
+      "credentials": {
+        "googleFirebaseCloudFirestoreOAuth2Api": {
+          "id": "Lams2A3dpt0MJMSl",
+          "name": "Google Firebase Cloud Firestore account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.mx_id }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "97bb6714-a37a-4d0b-bf41-ef8937939ab9",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        920,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "email": "={{ $json.email }}",
+        "phone": "=",
+        "additionalFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": "ha2NiTdGPtCJA9LYKg1S",
+                "fieldValue": "={{ $json._id }}"
+              },
+              {
+                "fieldId": "KLYIG67bzZXyiahVCedv",
+                "fieldValue": "={{ $json._mx_id }}"
+              }
+            ]
+          },
+          "name": "={{ $json.display_name }}"
+        }
+      },
+      "id": "72584519-71de-4a38-9d64-ba35c985b8b9",
+      "name": "HighLevel1",
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        780
+      ],
+      "credentials": {
+        "highLevelApi": {
+          "id": "ew4bA58eSgR7sbu8",
+          "name": "My Figures"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "email": "={{ $json.email }}",
+        "phone": "=",
+        "additionalFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": "ha2NiTdGPtCJA9LYKg1S",
+                "fieldValue": "={{ $json._id }}"
+              }
+            ]
+          },
+          "name": "={{ $json.display_name }}",
+          "tags": "add mx id"
+        }
+      },
+      "id": "7abc0242-c5fe-4e6b-bf43-ca00a27ca375",
+      "name": "HighLevel2",
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        620
+      ],
+      "credentials": {
+        "highLevelApi": {
+          "id": "ew4bA58eSgR7sbu8",
+          "name": "My Figures"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "projectId": "my-figures-ee0e7",
+        "collection": "=Users",
+        "documentId": "{{ $json.body[0].data.object.client_reference_id }}"
+      },
+      "id": "d8311d2e-208c-4e7c-84eb-95df67730e0d",
+      "name": "Google Cloud Firestore1",
+      "type": "n8n-nodes-base.googleFirebaseCloudFirestore",
+      "typeVersion": 1,
+      "position": [
+        740,
+        880
+      ],
+      "credentials": {
+        "googleFirebaseCloudFirestoreOAuth2Api": {
+          "id": "Lams2A3dpt0MJMSl",
+          "name": "Google Firebase Cloud Firestore account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "5c6b5b9f-3e35-445c-9041-02874dd528de",
+        "options": {}
+      },
+      "id": "6fc8198a-ab50-4fbb-b907-241250f37f3e",
+      "name": "Only use if you need to manually add",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        880
+      ],
+      "webhookId": "5c6b5b9f-3e35-445c-9041-02874dd528de"
+    },
+    {
+      "parameters": {
+        "events": [
+          "checkout.session.completed"
+        ]
+      },
+      "id": "f7cc2159-0f20-442b-9d48-3a6c759c229a",
+      "name": "Stripe Trigger1",
+      "type": "n8n-nodes-base.stripeTrigger",
+      "typeVersion": 1,
+      "position": [
+        580,
+        700
+      ],
+      "webhookId": "62686c96-3c16-43e5-af72-29702b649bdb",
+      "credentials": {
+        "stripeApi": {
+          "id": "EHRNxu7N2i79JxED",
+          "name": "Stripe account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Stripe Trigger1": {}
+  },
+  "tags": [
+    {
+      "id": "7r2pOFvdxJVEFGDb",
+      "createdAt": "2023-07-27T20:30:38.078Z",
+      "updatedAt": "2023-07-27T20:30:38.078Z",
+      "name": "my figures"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2023-07-27T20:47:22.584Z",
+  "versionId": "3ca930c4-a7d3-43cd-b7ee-27860576adf3"
+}
