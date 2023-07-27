@@ -1,0 +1,82 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2023-07-27T20:41:17.994Z",
+  "id": "3WpEvXxm7BT9zwPe",
+  "name": "browserless testing",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "function",
+        "browserOptions": {
+          "headless": false,
+          "stealth": true
+        }
+      },
+      "id": "db37f48c-1dea-4680-8675-73e71c899ec1",
+      "name": "Browserless",
+      "type": "n8n-nodes-browserless.Browserless",
+      "typeVersion": 1,
+      "position": [
+        560,
+        520
+      ],
+      "credentials": {
+        "browserlessApi": {
+          "id": "MTxIch4PdX2fsjlX",
+          "name": "Browserless Credentials account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "53bd0b2c-5a26-46c3-a4a6-a4d78566ace5",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://basic-bundle-crimson-base-d56b.lead-built-marketing.workers.dev/proxy?modify&proxyUrl=https://webhook.site/dc8f81b2-dcf8-40f1-aa83-adb3d1fc0a6b",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "95665b91-4dbe-4a51-a7c1-6d54ea204ac1",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1000,
+        520
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2023-07-27T20:41:23.916Z",
+  "versionId": "bb5e5da3-020b-4482-966d-16d0b2b32045"
+}
