@@ -241,13 +241,7 @@
     "executionOrder": "v1"
   },
   "staticData": {
-    "node:Stripe Trigger1": {
-      "webhookId": "we_1NZQoKICDiQqsVaFTzhgRN57",
-      "webhookEvents": [
-        "checkout.session.completed"
-      ],
-      "webhookSecret": "whsec_uYEmMztQD81p8ErPKzk8Y8uApmHE9Ada"
-    }
+    "node:Stripe Trigger1": {}
   },
   "tags": [
     {
@@ -258,6 +252,6 @@
     }
   ],
   "triggerCount": 2,
-  "updatedAt": "2023-07-30T04:00:52.731Z",
+  "updatedAt": "2023-07-30T04:01:59.035Z",
   "versionId": "3ca930c4-a7d3-43cd-b7ee-27860576adf3"
 }
