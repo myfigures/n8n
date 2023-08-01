@@ -100,7 +100,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n    \"callback\": {\n        \"url\": \"https://n8n.myfigures.com/webhook/6972c472-0fd2-4b08-8318-fewa\",\n        \"method\": \"post\"\n    },\n    \"query\": {\n        \"module\": {\n            \"api_name\": \"Deals\"\n        },\n        \"criteria\": {\n            \"field\": {\n                \"api_name\": \"Created_Time\"\n            },\n            \"comparator\": \"greater_than\",\n            \"value\": \"{{ $json.outputString }}\"\n        }\n    }\n}",
+        "jsonBody": "={\n    \"callback\": {\n        \"url\": \"https://n8n.myfigures.com/webhook/6972c472-0fd2-4b08-8318-fewa1\",\n        \"method\": \"post\"\n    },\n    \"query\": {\n        \"module\": {\n            \"api_name\": \"Deals\"\n        },\n        \"criteria\": {\n            \"field\": {\n                \"api_name\": \"Created_Time\"\n            },\n            \"comparator\": \"greater_than\",\n            \"value\": \"{{ $json.outputString }}\"\n        }\n    }\n}",
         "options": {}
       },
       "id": "df751e96-a905-4601-bd7b-8eff309e4bee",
@@ -194,7 +194,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "6972c472-0fd2-4b08-8318-fewa",
+        "path": "6972c472-0fd2-4b08-8318-fewa1",
         "options": {}
       },
       "id": "63680286-07d1-4231-bff8-1363c817e143",
@@ -2614,6 +2614,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2023-07-27T20:44:50.396Z",
-  "versionId": "1cfd241d-8b02-40ef-8f55-70a3fe12c679"
+  "updatedAt": "2023-07-31T16:23:18.652Z",
+  "versionId": "ecb3faeb-02e6-4fd1-bc8a-6f562aa0d7fb"
 }
