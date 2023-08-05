@@ -1,0 +1,612 @@
+{
+  "active": false,
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Item Lists1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "HighLevel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Item Lists1": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-08-04T11:55:36.379Z",
+  "id": "9Np8EDoJW9IKiPjJ",
+  "name": "My workflow copy",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/funnels/funnel/clone-funnel-step",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "authority",
+              "value": "services.leadconnectorhq.com"
+            },
+            {
+              "name": "accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "channel",
+              "value": "APP"
+            },
+            {
+              "name": "origin",
+              "value": "https://app.leadbuilt.com"
+            },
+            {
+              "name": "referer",
+              "value": "https://app.leadbuilt.com/"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "cross-site"
+            },
+            {
+              "name": "source",
+              "value": "WEB_USER"
+            },
+            {
+              "name": "token-id",
+              "value": "={{ $json.propertyName }}"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json;charset=UTF-8",
+        "body": "{\"stepId\":\"5a4654d4-81b9-4e60-a7f6-3b0fc21213ad\",\"funnelId\":\"dVwMDtiiCtGQxsweulka\",\"funnels\":[\"dVwMDtiiCtGQxsweulka\"],\"locationId\":\"eNWfKXa7f0fQ9Sbrggtm\",\"userId\":\"EhKyqZSRhM0ospmLGd4R\"}",
+        "options": {}
+      },
+      "id": "ddb64a2c-d686-42dd-a967-bf9544da2bd8",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2040,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/funnels/funnel/list",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "eNWfKXa7f0fQ9Sbrggtm"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "authority",
+              "value": "services.leadconnectorhq.com"
+            },
+            {
+              "name": "accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "channel",
+              "value": "APP"
+            },
+            {
+              "name": "origin",
+              "value": "https://app.leadbuilt.com"
+            },
+            {
+              "name": "referer",
+              "value": "https://app.leadbuilt.com/"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "cross-site"
+            },
+            {
+              "name": "source",
+              "value": "WEB_USER"
+            },
+            {
+              "name": "token-id",
+              "value": "={{ $('Set').item.json.propertyName }}"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7ac4b291-31bf-47b2-aa6e-132beaca2043",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2460,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/funnels/order-form/products",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "authority",
+              "value": "www.google-analytics.com"
+            },
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "=en-US,en;q=0.9"
+            },
+            {
+              "name": "access-control-request-headers",
+              "value": "cache-control,channel,content-type,pragma,source,token-id,version"
+            },
+            {
+              "name": "access-control-request-method",
+              "value": "GET"
+            },
+            {
+              "name": "origin",
+              "value": "https://app.leadbuilt.com"
+            },
+            {
+              "name": "referer",
+              "value": "https://app.leadbuilt.com/"
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "no-cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "cross-site"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "channel",
+              "value": "APP"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "source",
+              "value": "WEB_USER"
+            },
+            {
+              "name": "token-id",
+              "value": "={{ $('Set').item.json.propertyName }}"
+            },
+            {
+              "name": "content-length",
+              "value": "0"
+            },
+            {
+              "name": "authorization",
+              "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImlhdCI6MTY5MTExODMwOCwiZXhwIjoxNjkxMTIxOTA4LCJpc3MiOiJkZWZhdWx0LWNybS1tYXJrZXRwbGFjZUBoaWdobGV2ZWwtYmFja2VuZC5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInN1YiI6ImRlZmF1bHQtY3JtLW1hcmtldHBsYWNlQGhpZ2hsZXZlbC1iYWNrZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwidWlkIjoiRWhLeXFaU1JoTTBvc3BtTEdkNFIiLCJjbGFpbXMiOnsidXNlcl9pZCI6IkVoS3lxWlNSaE0wb3NwbUxHZDRSIiwiY29tcGFueV9pZCI6InJ0SFNyNzlXa1ZtRHFiQXo0SmlCIiwicm9sZSI6ImFkbWluIiwidHlwZSI6ImFnZW5jeSIsInZlcnNpb24iOjIsImxvY2F0aW9ucyI6W10sInBlcm1pc3Npb25zIjp7IndvcmtmbG93c19lbmFibGVkIjp0cnVlLCJ3b3JrZmxvd3NfcmVhZF9vbmx5IjpmYWxzZX19fQ.iqDS_xhL64EWLz9BLM_QAGpVdknYZZxo32-y4yhElE_h0R6gpTZHoRJb8K_rWCRp4YoJBbP66zi5KojK8IP5ziXxBSGgAUTfvrzq-MJ6mvbnIQvo3MTt7OxaV3fO43OYvuKjfaGHFcrdjelC4wjzKmawlznVLljxfRcTQEkQM0Di3p9jnTj8qInVCfGhU0HS12INsUGEpnJZgYYVDkLSxW4KQzufhX7Xl7iSxnUyTBEbpmNRUY13CPAjk8VnLRr2pU-GfeGVdj8eG-U-AmZDh0o7LYEYAB6kNRADUALR5u7u-xX5rWeoa62Q5vMv6_MDkgUqm9aSTO1yM3hgqVyrFA"
+            },
+            {
+              "name": "if-none-match",
+              "value": "W/\"40-Qc6Uii4k+mP/iA8FovIUWbCDVZM\""
+            },
+            {
+              "name": "cookie",
+              "value": "__Secure-3PSID=ZQhvyYGV0nih8biREEzszM-kf0hjLhC3wv_znPaJ_roGmIBfvXrxMvdAu7cCZnimdEGkXQ.; __Secure-3PAPISID=kHq9_5fR4VO5UCBk/Ake73b5_5X6-CNqnp; NID=511=b6d9rLhC0xzDE2bhem-luC3PGNBH-pNyNVRqOy0FLFoWPaa5aH-0co0vFY6N5jnSHBUENdCd_Sx1kBhNnDXChiIyJ8RD7KsHvovNGMQS-IUWDNOg9d8MVRFSu82seLSUuajC3QlPYw2c35SH9gomQUDVMJnfZxhH_tDM49d19rNwC_C9CQIRrz36MaZCCd7K4SfGb5NPYmXe8oHxJ-uwmIpNUHbu8yoNI-S4ubZYel5rrpjfOeqiMD57nz8ZbsvSwd_plZwMX_cyQ1yfksqdqXHqGq8MLjYj-4TzwIOUTcZqg7CCCiP3vK4KvilRr1Ngy8c; 1P_JAR=2023-08-04-10; __Secure-3PSIDCC=APoG2W__UtjNdUVW7C5CkZeCmZOBH4SWS7jyg6fRlrjBt5CQSs682khLcAG4TGH6k7zwdK3BBg"
+            },
+            {
+              "name": "x-client-data",
+              "value": "CJG2yQEIorbJAQipncoBCODZygEIlKHLAQiGoM0BCMPFzQEYwMvMAQ=="
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json;charset=UTF-8",
+        "body": "={\"locationId\":\"eNWfKXa7f0fQ9Sbrggtm\",\"funnel\":\"dVwMDtiiCtGQxsweulka\",\"step\":\"{{ $json.id }}\",\"name\":\"Event Insurance Premium + Fees\",\"displayText\":\"\",\"product\":\"64ccab900a69dc11b17b6dac\",\"price\":\"{{ $('Webhook').item.json.body.tags }}\",\"bumpProduct\":false,\"quantity\":{\"max\":1,\"allowMultiple\":false},\"authorizeAmount\":0} ",
+        "options": {}
+      },
+      "id": "0223f63b-a435-4654-8bde-34c9029d0ffa",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2900,
+        540
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "135SwoZdWa_Y_NC9RcBYgLR7HxPZwWGQlc3oqXOaaotM",
+          "mode": "list",
+          "cachedResultName": "Sports Refund Products",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/135SwoZdWa_Y_NC9RcBYgLR7HxPZwWGQlc3oqXOaaotM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/135SwoZdWa_Y_NC9RcBYgLR7HxPZwWGQlc3oqXOaaotM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tags": "={{ $('Webhook').item.json.body.tags }}",
+            "First Name": "={{ $('Webhook').item.json.body.first_name }}",
+            "Last Name": "={{ $('IF').item.json.url }}"
+          },
+          "matchingColumns": [
+            "Tags"
+          ],
+          "schema": [
+            {
+              "id": "Tags",
+              "displayName": "Tags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "First Name",
+              "displayName": "First Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last Name",
+              "displayName": "Last Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d09664da-aefa-46aa-b249-00a748002393",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        3120,
+        540
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "E0d4HN1q38dEJfXE",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "83a3cda6-8d34-45c4-87ab-922122e47a38",
+        "options": {}
+      },
+      "id": "a1b57e6e-708c-485c-9c36-0feb3d90457a",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        540
+      ],
+      "webhookId": "83a3cda6-8d34-45c4-87ab-922122e47a38"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "updateFields": {
+          "lastName": "={{ $('IF').item.json.url }}",
+          "tags": "done"
+        }
+      },
+      "id": "5ded3c3f-0471-4d1f-8524-27f9e1681f6b",
+      "name": "HighLevel",
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        540
+      ],
+      "credentials": {
+        "highLevelApi": {
+          "id": "ImExcBFw7UTEfOCF",
+          "name": "Sports Refund Test"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYyM2YzNmM4MTZlZTNkZWQ2YzU0NTkyZTM4ZGFlZjcyZjE1YTBmMTMiLCJ0eXAiOiJKV1QifQ.eyJ1c2VyX2lkIjoiRWhLeXFaU1JoTTBvc3BtTEdkNFIiLCJjb21wYW55X2lkIjoicnRIU3I3OVdrVm1EcWJBejRKaUIiLCJyb2xlIjoiYWRtaW4iLCJ0eXBlIjoiYWdlbmN5IiwibG9jYXRpb25zIjpbIjNRWldNZnllRzRTM21kaUtoWTU5IiwiTHl4blFXYkV2TG9aOGRLbTBOcHIiLCJ2QjdMQXJhQnh2WTk3Njc3MVNvcSIsImVOV2ZLWGE3ZjBmUTlTYnJnZ3RtIiwicGJjZ0pjTE4zekNEQ3FqaHlDY1IiLCJyRmZRWFRFUzdDYnEzREllOVl3USIsIlNFdXM1d1FVenByTmNRRTR1NzNZIl0sInZlcnNpb24iOjIsInBlcm1pc3Npb25zIjp7IndvcmtmbG93c19lbmFibGVkIjp0cnVlLCJ3b3JrZmxvd3NfcmVhZF9vbmx5IjpmYWxzZX0sImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9oaWdobGV2ZWwtYmFja2VuZCIsImF1ZCI6ImhpZ2hsZXZlbC1iYWNrZW5kIiwiYXV0aF90aW1lIjoxNjkxMTkxNDIzLCJzdWIiOiJFaEt5cVpTUmhNMG9zcG1MR2Q0UiIsImlhdCI6MTY5MTE5NDcyNCwiZXhwIjoxNjkxMTk4MzI0LCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7fSwic2lnbl9pbl9wcm92aWRlciI6ImN1c3RvbSJ9fQ.QETVz7sD4wL4T9SqxUIrfprZN66GBBswaSD3bc_pVa8KzXufNJZq50ZulUybfTWhLNrsUems8GNfxIdo0peRR7ne2v5D3XJQa7AWgye9A8MTlQniVwaCkH1SOtevVaHg8-GbeqKAE5R97VuSQQYdlMZkKTZnFv0UExLKg_6wRh-zhuEewlaUYkhru5mEJkzSR-y7DTR44GIW3wSHGhJbMZgCc7x1jPzxPcTk4GKE0zpstXJs7OTRgE2I7pEtiBWOZke2Oyv8Ym8xWu-aSDVucdygnY2MCicLWH9uo6fUqfcP6PrUleH3ldE21BkN-ecfAn0tx76E6YliH8AFLUreTw"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5bec3662-db10-45d9-8a3c-618ba6698c2a",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.id }}",
+              "operation": "contains",
+              "value2": "={{ $('Wait').item.json.data.stepIds[0] }}"
+            }
+          ]
+        },
+        "combineOperation": "=all"
+      },
+      "id": "09e7aceb-348c-4e1b-8ae1-a346495b566d",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "funnels[0].steps",
+        "options": {}
+      },
+      "id": "5cb8f071-ed76-4184-b4fb-597e0290b368",
+      "name": "Item Lists1",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 3,
+      "position": [
+        2620,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "74e5aac6-e560-497d-b177-421ee72eb35d",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        540
+      ],
+      "webhookId": "14229509-a7b3-4f2c-89b7-1be1003648e0"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-08-05T01:31:42.362Z",
+  "versionId": "dcc0d6f3-a818-45f3-9455-693e74d3ab50"
+}
