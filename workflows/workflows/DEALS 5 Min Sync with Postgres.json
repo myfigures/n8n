@@ -212,7 +212,7 @@
         "operation": "subtractFromDate",
         "magnitude": "={{ $now }}",
         "timeUnit": "hours",
-        "duration": 300,
+        "duration": 500,
         "outputFieldName": "dateString"
       },
       "id": "a42a4bbf-6b3e-40fe-bd06-516fc026a8f0",
@@ -2603,7 +2603,6 @@
   "pinData": {},
   "settings": {
     "executionOrder": "v1",
-    "saveDataSuccessExecution": "none",
     "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner"
   },
@@ -2614,6 +2613,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2023-07-31T16:23:18.652Z",
-  "versionId": "ecb3faeb-02e6-4fd1-bc8a-6f562aa0d7fb"
+  "updatedAt": "2023-08-04T18:02:15.691Z",
+  "versionId": "345939f9-9e87-47dd-971e-483d4247a1c9"
 }
