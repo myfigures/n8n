@@ -142,7 +142,7 @@
         "operation": "subtractFromDate",
         "magnitude": "={{ $now }}",
         "timeUnit": "hours",
-        "duration": 200,
+        "duration": 500,
         "outputFieldName": "dateString"
       },
       "id": "0025d9b1-bed9-49ce-9cc8-b0a1d6578516",
@@ -2133,8 +2133,7 @@
   "settings": {
     "executionOrder": "v1",
     "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner",
-    "saveDataSuccessExecution": "none"
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:Schedule Trigger": {
@@ -2143,6 +2142,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2023-08-02T23:59:53.565Z",
-  "versionId": "f39bf067-658b-481e-9919-a0e4190b4c49"
+  "updatedAt": "2023-08-04T17:59:36.068Z",
+  "versionId": "aa5dee2c-c72e-4822-b083-638a282602de"
 }
