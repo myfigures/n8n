@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "HTTP Request": {
       "main": [
@@ -94,6 +94,28 @@
         [
           {
             "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HighLevel2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HighLevel2": {
+      "main": [
+        [
+          {
+            "node": "HighLevel1",
             "type": "main",
             "index": 0
           }
@@ -430,17 +452,17 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Tags": "={{ $('Webhook').item.json.body.tags }}",
-            "First Name": "={{ $('Webhook').item.json.body.first_name }}",
-            "Last Name": "={{ $('IF').item.json.url }}"
+            "priceID": "={{ $('Webhook').item.json.body.tags }}",
+            "amount": "={{ $('Webhook').item.json.body.first_name }}",
+            "path": "={{ $('IF').item.json.url }}"
           },
           "matchingColumns": [
-            "Tags"
+            "priceID"
           ],
           "schema": [
             {
-              "id": "Tags",
-              "displayName": "Tags",
+              "id": "priceID",
+              "displayName": "priceID",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -449,8 +471,8 @@
               "removed": false
             },
             {
-              "id": "First Name",
-              "displayName": "First Name",
+              "id": "amount",
+              "displayName": "amount",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -458,14 +480,13 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Last Name",
-              "displayName": "Last Name",
+              "id": "path",
+              "displayName": "path",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             }
           ]
         },
@@ -531,7 +552,7 @@
         "values": {
           "string": [
             {
-              "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYyM2YzNmM4MTZlZTNkZWQ2YzU0NTkyZTM4ZGFlZjcyZjE1YTBmMTMiLCJ0eXAiOiJKV1QifQ.eyJ1c2VyX2lkIjoiRWhLeXFaU1JoTTBvc3BtTEdkNFIiLCJjb21wYW55X2lkIjoicnRIU3I3OVdrVm1EcWJBejRKaUIiLCJyb2xlIjoiYWRtaW4iLCJ0eXBlIjoiYWdlbmN5IiwibG9jYXRpb25zIjpbIjNRWldNZnllRzRTM21kaUtoWTU5IiwiTHl4blFXYkV2TG9aOGRLbTBOcHIiLCJ2QjdMQXJhQnh2WTk3Njc3MVNvcSIsImVOV2ZLWGE3ZjBmUTlTYnJnZ3RtIiwicGJjZ0pjTE4zekNEQ3FqaHlDY1IiLCJyRmZRWFRFUzdDYnEzREllOVl3USIsIlNFdXM1d1FVenByTmNRRTR1NzNZIl0sInZlcnNpb24iOjIsInBlcm1pc3Npb25zIjp7IndvcmtmbG93c19lbmFibGVkIjp0cnVlLCJ3b3JrZmxvd3NfcmVhZF9vbmx5IjpmYWxzZX0sImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9oaWdobGV2ZWwtYmFja2VuZCIsImF1ZCI6ImhpZ2hsZXZlbC1iYWNrZW5kIiwiYXV0aF90aW1lIjoxNjkxMTkxNDIzLCJzdWIiOiJFaEt5cVpTUmhNMG9zcG1MR2Q0UiIsImlhdCI6MTY5MTE5NDcyNCwiZXhwIjoxNjkxMTk4MzI0LCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7fSwic2lnbl9pbl9wcm92aWRlciI6ImN1c3RvbSJ9fQ.QETVz7sD4wL4T9SqxUIrfprZN66GBBswaSD3bc_pVa8KzXufNJZq50ZulUybfTWhLNrsUems8GNfxIdo0peRR7ne2v5D3XJQa7AWgye9A8MTlQniVwaCkH1SOtevVaHg8-GbeqKAE5R97VuSQQYdlMZkKTZnFv0UExLKg_6wRh-zhuEewlaUYkhru5mEJkzSR-y7DTR44GIW3wSHGhJbMZgCc7x1jPzxPcTk4GKE0zpstXJs7OTRgE2I7pEtiBWOZke2Oyv8Ym8xWu-aSDVucdygnY2MCicLWH9uo6fUqfcP6PrUleH3ldE21BkN-ecfAn0tx76E6YliH8AFLUreTw"
+              "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYyM2YzNmM4MTZlZTNkZWQ2YzU0NTkyZTM4ZGFlZjcyZjE1YTBmMTMiLCJ0eXAiOiJKV1QifQ.eyJ1c2VyX2lkIjoiRWhLeXFaU1JoTTBvc3BtTEdkNFIiLCJjb21wYW55X2lkIjoicnRIU3I3OVdrVm1EcWJBejRKaUIiLCJyb2xlIjoiYWRtaW4iLCJ0eXBlIjoiYWdlbmN5IiwibG9jYXRpb25zIjpbInZCN0xBcmFCeHZZOTc2NzcxU29xIiwiTHl4blFXYkV2TG9aOGRLbTBOcHIiLCJlTldmS1hhN2YwZlE5U2JyZ2d0bSIsInBiY2dKY0xOM3pDRENxamh5Q2NSIiwickZmUVhURVM3Q2JxM0RJZTlZd1EiLCJYMXNTNjVLOHR0ZFNnenVKTWh5VyJdLCJ2ZXJzaW9uIjoyLCJwZXJtaXNzaW9ucyI6eyJ3b3JrZmxvd3NfZW5hYmxlZCI6dHJ1ZSwid29ya2Zsb3dzX3JlYWRfb25seSI6ZmFsc2V9LCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vaGlnaGxldmVsLWJhY2tlbmQiLCJhdWQiOiJoaWdobGV2ZWwtYmFja2VuZCIsImF1dGhfdGltZSI6MTY5MTI3NzgyMiwic3ViIjoiRWhLeXFaU1JoTTBvc3BtTEdkNFIiLCJpYXQiOjE2OTEyNzc4MjIsImV4cCI6MTY5MTI4MTQyMiwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6e30sInNpZ25faW5fcHJvdmlkZXIiOiJjdXN0b20ifX0.LHUk1TRE7UkyaoRdoaBHIo4EfZIXsI2M_VEtYXkfzJoujHcTTGqNTrhllFhxrEFcB-Sme4AhIKaj5iFB4i98qGoc2qq8Sch0iMEL8p7qea4hg-fP_g1cPJmetKrz6KDvq9USOAIbF8N0FFhdCyLjPy-6zP0rtxq9m2zUGP9I-CYMuOGkm6dujnTkPO0yXvrMlgWJajvMqlMi9pdrNmvI7J5EgiX9dTsuy-mUGGDdYyEYlOC_ezsakDKFXoXCunG0fg2d2wi36eGmNksc-DDo9WwB_b4iqdZiyRsGguDldTyfqVYhnDePellUOheNsUTELJm6_XQ68aGCYzPUQ4Z3gQ"
             }
           ]
         },
@@ -596,6 +617,81 @@
         540
       ],
       "webhookId": "14229509-a7b3-4f2c-89b7-1be1003648e0"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 10
+            }
+          ]
+        }
+      },
+      "id": "45c91c9d-cf04-43be-afca-b44dd833175a",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1680,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $json.id }}",
+        "updateFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": "vD4fHizznz66maSHfE7F",
+                "fieldValue": "start"
+              }
+            ]
+          },
+          "email": "=done+{{ $json.id }}@leadbuilt.com"
+        }
+      },
+      "id": "c28f0172-d4af-4131-a9f8-1d49a4c11c74",
+      "name": "HighLevel1",
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        900
+      ],
+      "credentials": {
+        "highLevelApi": {
+          "id": "ImExcBFw7UTEfOCF",
+          "name": "Sports Refund Test"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 5,
+        "filters": {
+          "query": "=brock"
+        },
+        "options": {}
+      },
+      "id": "d2579d8c-7606-4123-bb27-e06a3e6b21c6",
+      "name": "HighLevel2",
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        780
+      ],
+      "credentials": {
+        "highLevelApi": {
+          "id": "ImExcBFw7UTEfOCF",
+          "name": "Sports Refund Test"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -604,9 +700,13 @@
     "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrencyRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2023-08-05T01:31:42.362Z",
-  "versionId": "dcc0d6f3-a818-45f3-9455-693e74d3ab50"
+  "triggerCount": 2,
+  "updatedAt": "2023-08-05T23:42:43.795Z",
+  "versionId": "926e61aa-e1f5-4537-af4e-c7a5622b0b07"
 }
